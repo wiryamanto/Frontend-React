@@ -24,6 +24,8 @@ export default class Navbars extends Component {
         })
     };
 }
+    handleChange = () =>{};
+    
     render() {
         return (
             <div>
@@ -34,12 +36,15 @@ export default class Navbars extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
-                        <Nav.Link>
-                            <Link to="/">Home</Link>
+                        <Nav.Link to="/">
+                            Home
+                        </Nav.Link>
+                        <Nav.Link to="/profile">
+                       Profile
                         </Nav.Link>
                         <Nav.Link className= "shoping-cart">
                             <span>{this.state.jumlah}</span>
-                            <Link to="/Profile"> Profile</Link>
+                            
                             </Nav.Link>
                         </Nav>
                         <FontAwesomeIcon icon = {faShoppingCart} />
@@ -54,7 +59,12 @@ export default class Navbars extends Component {
                     {this.props.harga}
                     </Card.Text>
                     <Button variant="danger" onClick={this.handleMinus}>-</Button>
-                    <input type = "text" value={this.state.jumlah} className="text-center" style ={{width:"70%"}}/>
+                    <input 
+                    onChange={this.handleChange}
+                     type = "text" 
+                     value={this.state.jumlah}
+                     className="text-center" 
+                     style ={{width:"70%"}}/>
                     <Button variant="primary" onClick={this.handlePlus}>+</Button>
                 </Card.Body>
              </Card>

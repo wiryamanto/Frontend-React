@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 import {Card, Button} from "react-bootstrap"
+import axios from 'axios'
+
 export default class Product extends Component {
+    
+    state={
+        foods:[],
+    };
+
+    componentDidMount(){
+        axios.get("https://restfullfoods.herokuapp.com/foods").then((res)=>{
+            console.log(res.data.data);
+        })
+    }
+
     render() {
         return (
             <div>
